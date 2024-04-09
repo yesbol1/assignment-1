@@ -1,0 +1,137 @@
+problem 1
+public class ArrayMinFinder {
+    public static int findMinRecursive(int[] arr, int index) {
+        if (index == 0) {
+            return arr[0];
+        } else {
+            int minOfRest = findMinRecursive(arr, index-1);
+            return Math.min(arr[index], minOfRest);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 6, 23, 22, 100, 8};
+        int min = findMinRecursive(arr, arr.length - 1);
+        System.out.println("Minimum element is: " + min);
+    }
+}
+
+problem 2
+public class RecursiveAverage {
+    public static double calculateAverage(int[] arr, int index, int sum) {
+        if (index == arr.length-1) {
+            return (sum + arr[index]) / (double) arr.length;
+        } else {
+            return calculateAverage(arr, index+1, sum+arr[index]);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 8, 15, 5, 23, 5};
+        double avg = calculateAverage(arr, 0, 0);
+        System.out.println("Average is: " + avg);
+    }
+}
+problem 3
+public class PrimeCheck {
+    public static boolean isPrime(int n, int i) {
+        if (n <= 2) {
+            return (n == 2) ? true : false;
+        }
+        if (n % i == 0) {
+            return false;
+        }
+        if (i * i > n) {
+            return true;
+        }
+        return isPrime(n, i + 1);
+    }
+
+    public static void main(String[] args) {
+        int n = 29;
+        boolean result = isPrime(n, 2);
+        System.out.println("Is " + n + " prime? " + result);
+    }
+}
+
+problem 4
+public class Factorial {
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        System.out.println("Factorial of " + n + " is: " + factorial(n));
+    }
+}
+
+
+problem 5
+public class Fibonacci {
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println(n + "-th Fibonacci number is: " + fibonacci(n));
+    }
+}
+
+problem 6
+
+public class Power {
+    public static int power(int a, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return a * power(a, n - 1);
+    }
+
+    public static void main(String[] args) {
+        int a = 2;
+        int n = 10;
+        System.out.println(a + " raised to the power " + n + " is: " + power(a, n));
+    }
+}
+
+problem 7
+public class ReverseArray {
+    public static void reverseInPlace(int[] arr, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        reverseInPlace(arr, start + 1, end - 1);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        reverseInPlace(arr, 0, arr.length - 1);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+problem 8
+public class DigitsOnly {
+    public static boolean isAllDigits(String s) {
+        return s.matches("[0-9]+");
+    }
+
+    public static void main(String[] args) {
+        String s = "12345";
+        System.out.println("Is digit" + isAllDigits(s));
+    }
+}
+ problem 9
